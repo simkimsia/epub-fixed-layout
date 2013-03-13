@@ -1,0 +1,7 @@
+*sublime*
+*DS_Store
+src/vendor/*
+*/Images/*
+*.epub
+src/templating/cache/*
+build/output/*
