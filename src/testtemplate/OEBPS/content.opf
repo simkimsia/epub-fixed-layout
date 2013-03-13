@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="book-id" version="2.0">
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+        <dc:title>STORYDEX</dc:title>
+        <dc:creator>STORYZER</dc:creator>
+        <dc:publisher>STORYZER</dc:publisher>
+        <dc:date>2013</dc:date>
+        <dc:language>en</dc:language>
+        <dc:identifier id="book-id">96faed20-338c-11e0-bc8e-0800200c9a66</dc:identifier>
+        <meta content="img-cov" name="cover"/>
+    </metadata>
+    <manifest>
+        <item href="toc.ncx" id="ncx" media-type="application/x-dtbncx+xml"/>
+        <item href="Styles/styles.css" id="css" media-type="text/css"/>
+        <item href="Text/page01.xhtml" id="pg001" media-type="application/xhtml+xml"/>
+        <item href="Text/page02.xhtml" id="pg002" media-type="application/xhtml+xml"/>
+
+        <item href="Images/PAGE1.jpg" id="page01-image" media-type="image/jpeg"/>
+        <item href="Images/PAGE1-intl.jpg" id="page01-intl-image" media-type="image/jpeg"/>
+        <item href="Images/PAGE2.jpg" id="page02-image" media-type="image/jpeg"/>
+        <item href="Images/PAGE2-intl.jpg" id="page02-intl-image" media-type="image/jpeg"/>
+
+        <item href="Images/BACK COVER.jpg" id="bc-image" media-type="image/jpeg"/>
+
+        <item href="Images/BACK OF BACK COVER.jpg" id="bobc-image" media-type="image/jpeg"/>
+
+        <item href="Images/FRONT COVER.jpg" id="img-cov" media-type="image/jpeg"/>
+
+        <item href="Images/BACK OF FRONT COVER.jpg" id="bofc-image" media-type="image/jpeg"/>
+    </manifest>
+    <spine toc="ncx">
+        <itemref idref="pg001"/>
+        <itemref idref="pg002"/>
+    </spine>
+    <guide>
+        <reference href="Text/page01.xhtml" type="cover"/>
+        <reference href="Text/page02.xhtml" type="text"/>
+    </guide>
+</package>
