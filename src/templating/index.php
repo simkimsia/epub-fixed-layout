@@ -18,7 +18,6 @@ $twig = new Twig_Environment($loader, array(
 require_once '../lib/utility/UtilityExtension.php';
 
 //use UtilityTwigExtension\Utility_Twig_Extension;
-
 $twig->addExtension(new Utility_Twig_Extension());
 
 $content = array(
@@ -37,44 +36,25 @@ $content = array(
 
 $fileToRender = 'content.opf';
 $renderedOpf = $twig->render($fileToRender . '.html', $content);
-/*
-var_dump($renderedOpf);
 
-
-<!--
-    {% for page in pages %}
-        {% set pagenumber = padLeadingZero(loop.index1, 3) %}
-        {% set pagename = 'page' ~ pagenumber ~ '.xhtml' %}
-        {% set pageitemid = 'pg' ~ pagenumber %}
-        {% set pagepath = 'Text/' ~ pagename %}
-        {% set image = page.image %}
-        {% set imagepath = 'Images/' ~ image %}
-        {% set imageitemid = pageitemid ~ '-image' %}
-        <item href="{{ pagepath  }}" id="{{ pageitemid }}" media-type="application/xhtml+xml"/>
-        <item href="{{ imagepath }}" id="{{ imageitemid }}" media-type="image/jpeg"/>
-    {% endfor %} -->
-
-        <!--<item href="Images/PAGE1.jpg" id="page01-image" media-type="image/jpeg"/>
-        <item href="Images/PAGE1-intl.jpg" id="page01-intl-image" media-type="image/jpeg"/>
-        <item href="Images/PAGE2.jpg" id="page02-image" media-type="image/jpeg"/>
-        <item href="Images/PAGE2-intl.jpg" id="page02-intl-image" media-type="image/jpeg"/>
-
-        <item href="Images/BACK COVER.jpg" id="bc-image" media-type="image/jpeg"/>
-
-        <item href="Images/BACK OF BACK COVER.jpg" id="bobc-image" media-type="image/jpeg"/>-->
-
-*/
 $result = file_put_contents(SRC_EPUB_FILES . DS . $fileToRender, $renderedOpf);
 
-var_dump($result);
-/*
 if ($result !== false) {
+	echo "successfully rendered content.opf<br />";
+	$epubName = 'test1.epub';
 	$options = array(
-		'destination' => EPUB_FILES . DS . 'test1.epub',
+		'destination' => EPUB_FILES . DS . $epubName,
 		'include_dir' => false,
 	);
 
-	echo ZipLib::zipFolder(TESTTEMPLATE);
-}*/
+	$result = ZipLib::zipFolder(SRC_EPUB_FILES, $options);
+	var_dump($result);
+	if ($result !==false) {
+		echo "successfully generated $epubName<br />";
+	} else {
+		echo "failed to generate $epubName<br />";
+	}
+} else {
+	echo "failed to generate content.opf<br />";
+}
 
-echo 'success';

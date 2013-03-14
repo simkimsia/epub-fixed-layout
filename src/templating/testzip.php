@@ -10,4 +10,4 @@ $options = array(
 	'include_dir' => false,
 );
 
-echo ZipLib::zipFolder(TESTTEMPLATE);
+echo ZipLib::zipFolder(TESTTEMPLATE, $options);
