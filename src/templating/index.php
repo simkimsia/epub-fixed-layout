@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 
 require_once 'constants.php';
 
-require_once SRC . DS . 'Plugin' . DS . 'UtilityLib' . DS . 'Lib' . DS . 'ZipLib.php';
+require_once UTILITY_LIB . DS . 'ZipLib.php';
 
 require_once '../vendor/twig/twig/lib/Twig/Autoloader.php';
 Twig_Autoloader::register();

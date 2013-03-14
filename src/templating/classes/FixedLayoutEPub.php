@@ -1,12 +1,15 @@
 <?php
 require_once 'FixedLayoutEPubPage.php';
-
+require_once UTILITY_LIB . DIRECTORY_SEPARATOR . 'ArrayLib.php';
 class FixedLayoutEPub {
 
 	// contains FixedLayoutEPubPage objects 
 	private $pages = array();
 
 	private $metadata = array(); // hold string values only
+
+	public $frontCover = null;
+	public $backCover = null;
 
 	public function __construct($metadata = array()) {
 		$this->_setDefaults();
@@ -41,7 +44,7 @@ class FixedLayoutEPub {
 			// we just append to the pages
 			$this->pages[] = $page;
 		} else {
-
+			$this->pages = ArrayLib::insert($this->pages, $addAtIndex, $page);
 		}
 	}
 }

@@ -30,7 +30,7 @@
         {% set imageitemid = pageitemid ~ '-image' %}
 
         <item href="{{ pagepath  }}" id="{{ pageitemid }}" media-type="application/xhtml+xml"/>
-        <item href="{{ imagepath }}" id="{{ imageitemid }}" media-type="image/jpeg"/>
+        <item href="{{ imagepath }}" id="{{ imageitemid }}" media-type="{{ image.mimeType }}"/>
 
     {% endfor %}
     <!--
