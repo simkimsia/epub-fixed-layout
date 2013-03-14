@@ -1,6 +1,7 @@
 *sublime*
 *DS_Store
 src/vendor/*
+src/Plugin/*
 src/templates/OEBPS/Images/*
 src/testtemplate/OEBPS/Images/*
 *.epub

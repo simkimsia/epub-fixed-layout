@@ -1,6 +1,99 @@
 {
-    "hash": "445a507d97f68703751d3015a5dee494",
+    "hash": "41e390b14d8daa70691f67b00deaef00",
     "packages": [
+        {
+            "name": "composer/installers",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/installers.git",
+                "reference": "v1.0.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/installers/zipball/v1.0.3",
+                "reference": "v1.0.3",
+                "shasum": ""
+            },
+            "replace": {
+                "shama/baton": "*"
+            },
+            "require-dev": {
+                "composer/composer": "1.0.*@dev",
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "composer-installer",
+            "extra": {
+                "class": "Composer\\Installers\\Installer",
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Composer\\Installers\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kyle Robinson Young",
+                    "email": "kyle@dontkry.com",
+                    "homepage": "http://dontkry.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A multi-framework Composer library installer",
+            "homepage": "http://composer.github.com/installers/",
+            "keywords": [
+                "TYPO3 Flow",
+                "TYPO3 Neos",
+                "agl",
+                "cakephp",
+                "codeigniter",
+                "drupal",
+                "fuelphp",
+                "installer",
+                "joomla",
+                "kohana",
+                "laravel",
+                "li3",
+                "lithium",
+                "mako",
+                "phpbb",
+                "ppi",
+                "silverstripe",
+                "symfony",
+                "wordpress",
+                "yii",
+                "zend"
+            ],
+            "time": "2013-03-02 22:45:58"
+        },
+        {
+            "name": "simkimsia/utility_lib",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/simkimsia/UtilityLib.git",
+                "reference": "b5d742a3c4f39606653d1e875379d9f11526df3e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/simkimsia/UtilityLib/zipball/b5d742a3c4f39606653d1e875379d9f11526df3e",
+                "reference": "b5d742a3c4f39606653d1e875379d9f11526df3e",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": ">=1.0,<2.0"
+            },
+            "type": "cakephp-plugin",
+            "notification-url": "https://packagist.org/downloads/",
+            "time": "2013-03-13 06:10:51"
+        },
         {
             "name": "twig/twig",
             "version": "v1.12.2",
@@ -51,12 +144,20 @@
             "time": "2013-02-09 18:21:53"
         }
     ],
-    "packages-dev": null,
+    "packages-dev": [
+
+    ],
     "aliases": [
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": [
+    "stability-flags": {
+        "simkimsia/utility_lib": 20
+    },
+    "platform": [
+
+    ],
+    "platform-dev": [
 
     ]
 }
