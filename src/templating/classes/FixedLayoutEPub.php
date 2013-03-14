@@ -37,6 +37,13 @@ class FixedLayoutEPub {
 
 /**
  *
+ */
+	public function getMetadata() {
+		return $this->metadata;
+	}
+
+/**
+ *
  * append new page 
  */
 	public function addPage(FixedLayoutEPubPage $page, $addAtIndex=null) {

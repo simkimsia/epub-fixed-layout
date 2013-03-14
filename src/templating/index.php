@@ -3,6 +3,8 @@ error_reporting(E_ALL);
 
 require_once 'constants.php';
 
+require_once APP . DS . 'classes/FixedLayoutEPub.php';
+
 require_once UTILITY_LIB . DS . 'ZipLib.php';
 
 require_once '../vendor/twig/twig/lib/Twig/Autoloader.php';
@@ -21,22 +23,28 @@ require_once '../lib/utility/UtilityExtension.php';
 //use UtilityTwigExtension\Utility_Twig_Extension;
 $twig->addExtension(new Utility_Twig_Extension());
 
-$content = array(
+$metadata = array(
 	'title'		=> 'STORYDEX',
 	'creator'	=> 'STORYZER',
 	'publisher'	=> 'STORYZER',
 	'date'		=> '2013',
 	'language'	=> 'en',
-	'book_id'	=> '#1234567890',
-	
-	'pages'		=> array(
-			array('image' => 'PAGE1.jpg'),
-			array('image' => 'PAGE2.jpg'),
-		)
+	'book_id'	=> '#1234567890'
 );
 
+
+$epub = new FixedLayoutEPub($metadata);
+
+$pages = array(
+	array('image' => 'PAGE1.jpg'),
+	array('image' => 'PAGE2.jpg'),
+);
+
+
+
 $fileToRender = 'content.opf';
-$renderedOpf = $twig->render($fileToRender . '.html', $content);
+$renderedOpf = $twig->render($fileToRender . '.html', array('epub' => $epub));
+
 
 $result = file_put_contents(SRC_EPUB_FILES . DS . $fileToRender, $renderedOpf);
 
@@ -58,4 +66,3 @@ if ($result !== false) {
 } else {
 	echo "failed to generate content.opf<br />";
 }
-
