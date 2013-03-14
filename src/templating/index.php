@@ -1,5 +1,6 @@
 <?php
 error_reporting(E_ALL);
+
 require_once 'constants.php';
 
 require_once 'ZipLib.php';
@@ -48,7 +49,7 @@ if ($result !== false) {
 	);
 
 	$result = ZipLib::zipFolder(SRC_EPUB_FILES, $options);
-	var_dump($result);
+	
 	if ($result !==false) {
 		echo "successfully generated $epubName<br />";
 	} else {
