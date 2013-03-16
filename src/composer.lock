@@ -1,5 +1,5 @@
 {
-    "hash": "41e390b14d8daa70691f67b00deaef00",
+    "hash": "4040f2bfbc4cb7dd97ab61f096767788",
     "packages": [
         {
             "name": "composer/installers",
@@ -72,6 +72,27 @@
                 "zend"
             ],
             "time": "2013-03-02 22:45:58"
+        },
+        {
+            "name": "epubhub/epubhub",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/simkimsia/EPubHub.git",
+                "reference": "4e47a3a7258686321c674bd7bd001cf52ff67d3a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/simkimsia/EPubHub/zipball/4e47a3a7258686321c674bd7bd001cf52ff67d3a",
+                "reference": "4e47a3a7258686321c674bd7bd001cf52ff67d3a",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": ">=1.0,<2.0"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "time": "2013-03-16 08:59:36"
         },
         {
             "name": "simkimsia/utility_lib",
@@ -152,6 +173,7 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
+        "epubhub/epubhub": 20,
         "simkimsia/utility_lib": 20
     },
     "platform": [

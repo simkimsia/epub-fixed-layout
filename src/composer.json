@@ -1,5 +1,6 @@
 {
     "require": {
+        "epubhub/epubhub": "dev-master",
         "twig/twig": "1.*",
         "simkimsia/utility_lib": "dev-master"
     }

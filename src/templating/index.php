@@ -3,7 +3,8 @@ error_reporting(E_ALL);
 
 require_once 'constants.php';
 
-require_once APP . DS . 'classes/FixedLayoutEPub.php';
+require_once '../vendor/epubhub/epubhub/lib/EPubHub/Autoloader.php';
+EPubHub_Autoloader::register();
 
 require_once UTILITY_LIB . DS . 'ZipLib.php';
 
@@ -33,7 +34,7 @@ $metadata = array(
 );
 
 
-$epub = new FixedLayoutEPub($metadata);
+$epub = new EPubHub_Book_FixedLayout($metadata);
 
 $pages = array(
 	array('image' => 'PAGE1.jpg'),
