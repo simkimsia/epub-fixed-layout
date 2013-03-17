@@ -3,26 +3,25 @@ error_reporting(E_ALL);
 
 require_once 'constants.php';
 
+require_once UTILITY_LIB . DS . 'ZipLib.php';
+
 require_once '../vendor/epubhub/epubhub/lib/EPubHub/Autoloader.php';
 EPubHub_Autoloader::register();
 
-require_once UTILITY_LIB . DS . 'ZipLib.php';
+$twigLibPath = realpath('../vendor/twig/twig/lib/Twig');
 
-require_once '../vendor/twig/twig/lib/Twig/Autoloader.php';
-Twig_Autoloader::register();
 
-$loader = new Twig_Loader_Filesystem(OEBPS);
+$twigForEPubHub = new EPubHub_RenderingLibrary_Twig(
+	$twigLibPath
+);
 
-$cache = APP.DS.'cache';
-$cache = false;
-$twig = new Twig_Environment($loader, array(
-	'cache' => $cache,
-));
 
-require_once '../lib/utility/UtilityExtension.php';
+$ePubHubOptions = array(
+    'debug'             => true
+);
+$ePubHub = new EPubHub_Environment($twigForEPubHub, null, $ePubHubOptions);
 
-//use UtilityTwigExtension\Utility_Twig_Extension;
-$twig->addExtension(new Utility_Twig_Extension());
+
 
 $metadata = array(
 	'title'		=> 'STORYDEX',
@@ -42,12 +41,7 @@ $pages = array(
 );
 
 
-
-$fileToRender = 'content.opf';
-$renderedOpf = $twig->render($fileToRender . '.html', array('epub' => $epub));
-
-
-$result = file_put_contents(SRC_EPUB_FILES . DS . $fileToRender, $renderedOpf);
+$result = $ePubHub->renderBook($epub, SRC_EPUB_FILES);
 
 if ($result !== false) {
 	echo "successfully rendered content.opf<br />";
