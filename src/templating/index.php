@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 
 require_once 'constants.php';
 
-require_once UTILITY_LIB . DS . 'ZipLib.php';
+//require_once UTILITY_LIB . DS . 'ZipLib.php';
 
 require_once '../vendor/epubhub/epubhub/lib/EPubHub/Autoloader.php';
 EPubHub_Autoloader::register();
@@ -16,13 +16,16 @@ $twigForEPubHub = new EPubHub_RenderingLibrary_Twig(
 );
 
 // also define the zipping library to be used
-// $zipForEPubHub = new.....
+$zipLibPath = realpath(UTILITY_LIB);
+
+$zipLibForEPubHub = new EPubHub_ZippingLibrary_ZipLib($zipLibPath);
+
 
 // 2nd define certain options for the EPubHub Environment
 $ePubHubOptions = array(
     'debug'             => true
 );
-$ePubHub = new EPubHub_Environment($twigForEPubHub, null, $ePubHubOptions);
+$ePubHub = new EPubHub_Environment($twigForEPubHub, $zipLibForEPubHub, $ePubHubOptions);
 
 
 $metadata = array(
@@ -45,26 +48,21 @@ $pages = array(
 // 4th render the book into the files you want at the right place
 $result = $ePubHub->renderBook($fixedLayoutEPub, SRC_EPUB_FILES);
 
-// 5th zip the rendered files into the epub you want
-// $result = $ePubHub->zipRendered(SRC_EPUB_FILES, $buildFolder);
 
 // OR makeEPub to replace step 4 and 5
 // $result = $ePubHub->makeEPub($fixedLayoutEPub, $source, $build);
 
 if ($result !== false) {
 	echo "successfully rendered content.opf<br />";
-	$epubName = 'test1.epub';
-	$options = array(
-		'destination' => EPUB_FILES . DS . $epubName,
-		'include_dir' => false,
-	);
+	// 5th zip the rendered files into the epub you want
+	$result		= $ePubHub->zipRendered(SRC_EPUB_FILES, EPUB_FILES);
+	$metadata	= $fixedLayoutEPub->getMetadata();
+	$filename	= $metadata['title'] . '.epub';
 
-	$result = ZipLib::zipFolder(SRC_EPUB_FILES, $options);
-	
 	if ($result !==false) {
-		echo "successfully generated $epubName<br />";
+		echo "successfully generated $filename<br />";
 	} else {
-		echo "failed to generate $epubName<br />";
+		echo "failed to generate $filename<br />";
 	}
 } else {
 	echo "failed to generate content.opf<br />";
