@@ -45,17 +45,39 @@ $pages = array(
 	array('image' => 'PAGE2.jpg'),
 );
 
-// 4th render the book into the files you want at the right place
-$result = $ePubHub->renderBook($fixedLayoutEPub, SRC_EPUB_FILES);
+if (isset($_GET['in2'])) {
+	do2Separate($ePubHub, $fixedLayoutEPub);
+}
 
+if (isset($_GET['in1'])) {
+	doIn1Move($ePubHub, $fixedLayoutEPub);
+}
 
-// OR makeEPub to replace step 4 and 5
-// $result = $ePubHub->makeEPub($fixedLayoutEPub, $source, $build);
+function do2Separate($ePubHub, $fixedLayoutEPub)
+{
+	// 4th render the book into the files you want at the right place
+	$result = $ePubHub->renderBook($fixedLayoutEPub, SRC_EPUB_FILES);
 
-if ($result !== false) {
-	echo "successfully rendered content.opf<br />";
-	// 5th zip the rendered files into the epub you want
-	$result		= $ePubHub->zipRendered(SRC_EPUB_FILES, EPUB_FILES);
+	if ($result !== false) {
+		echo "successfully rendered content.opf<br />";
+		// 5th zip the rendered files into the epub you want
+		$result		= $ePubHub->zipRendered(SRC_EPUB_FILES, EPUB_FILES);
+		$metadata	= $fixedLayoutEPub->getMetadata();
+		$filename	= $metadata['title'] . '.epub';
+
+		if ($result !==false) {
+			echo "successfully generated $filename<br />";
+		} else {
+			echo "failed to generate $filename<br />";
+		}
+	} else {
+		echo "failed to generate content.opf<br />";
+	}
+}
+
+function doIn1Move($ePubHub, $fixedLayoutEPub) {
+	// OR makeEPub to replace step 4 and 5
+	$result = $ePubHub->makeEPub($fixedLayoutEPub, EPUB_FILES);
 	$metadata	= $fixedLayoutEPub->getMetadata();
 	$filename	= $metadata['title'] . '.epub';
 
@@ -64,6 +86,5 @@ if ($result !== false) {
 	} else {
 		echo "failed to generate $filename<br />";
 	}
-} else {
-	echo "failed to generate content.opf<br />";
 }
+
