@@ -15,6 +15,7 @@ $twigForEPubHub = new EPubHub_RenderingLibrary_Twig(
 	$twigLibPath
 );
 
+
 // also define the zipping library to be used
 $zipLibPath = realpath(UTILITY_LIB);
 
@@ -34,16 +35,19 @@ $metadata = array(
 	'publisher'	=> 'STORYZER',
 	'date'		=> '2013',
 	'language'	=> 'en',
-	'book_id'	=> '#1234567890'
+	'book_id'	=> '19910219'
 );
 
 // third define the book you want to create an EPub for
 $fixedLayoutEPub = new EPubHub_Book_FixedLayout($metadata);
 
-$pages = array(
-	array('image' => 'PAGE1.jpg'),
-	array('image' => 'PAGE2.jpg'),
-);
+// 4th define the pages for the book
+$image1 = new EPubHub_Image_FixedLayout(EPUB_IMAGES . DS . 'PAGE1.jpg');
+$image2 = new EPubHub_Image_FixedLayout(EPUB_IMAGES . DS . 'PAGE2.jpg');
+$page1 = new EPubHub_Page_FixedLayout($image1);
+$page2 = new EPubHub_Page_FixedLayout($image2);
+$fixedLayoutEPub->addPage($page1);
+$fixedLayoutEPub->addPage($page2);
 
 if (isset($_GET['in2'])) {
 	do2Separate($ePubHub, $fixedLayoutEPub);
