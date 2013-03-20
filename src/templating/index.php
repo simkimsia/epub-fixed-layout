@@ -10,6 +10,7 @@ EPubHub_Autoloader::register();
 
 $twigLibPath = realpath('../vendor/twig/twig/lib/Twig');
 
+
 // first define the rendering library to be used for EPubHub
 $twigForEPubHub = new EPubHub_RenderingLibrary_Twig(
 	$twigLibPath
@@ -39,7 +40,7 @@ $metadata = array(
 );
 
 // third define the book you want to create an EPub for
-$fixedLayoutEPub = new EPubHub_Book_FixedLayout($metadata);
+$fixedLayoutEPub = new EPubHub_Book_FixedLayout($metadata, array('height' => 1700, 'width' => 1202));
 
 // 4th define the pages for the book
 $image1 = new EPubHub_Image_FixedLayout(EPUB_IMAGES . DS . 'PAGE1.jpg');
