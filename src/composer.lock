@@ -79,12 +79,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/simkimsia/EPubHub.git",
-                "reference": "88d64fc6f8fe5aea1aa79b29bdd82ab0875ab6d7"
+                "reference": "efc1c80fe92ed8dcac557e5553c9c5f0cbb25510"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/simkimsia/EPubHub/zipball/88d64fc6f8fe5aea1aa79b29bdd82ab0875ab6d7",
-                "reference": "88d64fc6f8fe5aea1aa79b29bdd82ab0875ab6d7",
+                "url": "https://api.github.com/repos/simkimsia/EPubHub/zipball/efc1c80fe92ed8dcac557e5553c9c5f0cbb25510",
+                "reference": "efc1c80fe92ed8dcac557e5553c9c5f0cbb25510",
                 "shasum": ""
             },
             "require": {
@@ -92,7 +92,7 @@
             },
             "type": "library",
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2013-03-20 03:13:15"
+            "time": "2013-03-20 10:40:15"
         },
         {
             "name": "simkimsia/utility_lib",

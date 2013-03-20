@@ -16,7 +16,6 @@ $twigForEPubHub = new EPubHub_RenderingLibrary_Twig(
 	$twigLibPath
 );
 
-
 // also define the zipping library to be used
 $zipLibPath = realpath(UTILITY_LIB);
 
