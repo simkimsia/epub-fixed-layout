@@ -79,12 +79,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/simkimsia/EPubHub.git",
-                "reference": "efc1c80fe92ed8dcac557e5553c9c5f0cbb25510"
+                "reference": "35d4d23fe3942a99265344d092622ce556134f12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/simkimsia/EPubHub/zipball/efc1c80fe92ed8dcac557e5553c9c5f0cbb25510",
-                "reference": "efc1c80fe92ed8dcac557e5553c9c5f0cbb25510",
+                "url": "https://api.github.com/repos/simkimsia/EPubHub/zipball/35d4d23fe3942a99265344d092622ce556134f12",
+                "reference": "35d4d23fe3942a99265344d092622ce556134f12",
                 "shasum": ""
             },
             "require": {
@@ -92,7 +92,10 @@
             },
             "type": "library",
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2013-03-20 10:40:15"
+            "license": [
+                "MIT"
+            ],
+            "time": "2013-03-20 14:37:56"
         },
         {
             "name": "simkimsia/utility_lib",
@@ -100,12 +103,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/simkimsia/UtilityLib.git",
-                "reference": "b5d742a3c4f39606653d1e875379d9f11526df3e"
+                "reference": "0681734ce775ec116fa4919965d8217074ba2743"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/simkimsia/UtilityLib/zipball/b5d742a3c4f39606653d1e875379d9f11526df3e",
-                "reference": "b5d742a3c4f39606653d1e875379d9f11526df3e",
+                "url": "https://api.github.com/repos/simkimsia/UtilityLib/zipball/0681734ce775ec116fa4919965d8217074ba2743",
+                "reference": "0681734ce775ec116fa4919965d8217074ba2743",
                 "shasum": ""
             },
             "require": {
@@ -113,7 +116,7 @@
             },
             "type": "cakephp-plugin",
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2013-03-13 06:10:51"
+            "time": "2013-03-14 05:28:10"
         },
         {
             "name": "twig/twig",

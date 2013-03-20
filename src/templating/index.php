@@ -42,12 +42,21 @@ $metadata = array(
 $fixedLayoutEPub = new EPubHub_Book_FixedLayout($metadata, array('height' => 1700, 'width' => 1202));
 
 // 4th define the pages for the book
-$image1 = new EPubHub_Image_FixedLayout(EPUB_IMAGES . DS . 'PAGE1.jpg');
-$image2 = new EPubHub_Image_FixedLayout(EPUB_IMAGES . DS . 'PAGE2.jpg');
+$frontCover = $image1 = new EPubHub_Image_FixedLayout(EPUB_IMAGES . DS . 'FRONT COVER.jpg'); 
+$image2 = new EPubHub_Image_FixedLayout(EPUB_IMAGES . DS . 'PAGE1-intl.jpg');
+$image3 = new EPubHub_Image_FixedLayout(EPUB_IMAGES . DS . 'PAGE2-intl.jpg');
+$backCover = $image4 = new EPubHub_Image_FixedLayout(EPUB_IMAGES . DS . 'BACK COVER.jpg');
 $page1 = new EPubHub_Page_FixedLayout($image1);
 $page2 = new EPubHub_Page_FixedLayout($image2);
+$page3 = new EPubHub_Page_FixedLayout($image3);
+$page4 = new EPubHub_Page_FixedLayout($image4);
+
 $fixedLayoutEPub->addPage($page1);
 $fixedLayoutEPub->addPage($page2);
+$fixedLayoutEPub->addPage($page3);
+$fixedLayoutEPub->addPage($page4);
+$fixedLayoutEPub->setFrontCover($frontCover);
+$fixedLayoutEPub->setBackCover($backCover);
 
 if (isset($_GET['in2'])) {
 	do2Separate($ePubHub, $fixedLayoutEPub);
