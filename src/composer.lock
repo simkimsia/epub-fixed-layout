@@ -1,6 +1,48 @@
 {
-    "hash": "4040f2bfbc4cb7dd97ab61f096767788",
+    "hash": "1c6ea1717264952aa11ece990332a88f",
     "packages": [
+        {
+            "name": "benthedesigner/dropbox",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/BenTheDesigner/Dropbox.git",
+                "reference": "94de100581fc103920786d38d4aa5433802d3842"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/BenTheDesigner/Dropbox/zipball/94de100581fc103920786d38d4aa5433802d3842",
+                "reference": "94de100581fc103920786d38d4aa5433802d3842",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Dropbox": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ben Tadiar",
+                    "email": "ben@handcraftedbyben.co.uk",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP 5.3 SDK for the Dropbox REST API",
+            "homepage": "https://github.com/BenTheDesigner/Dropbox",
+            "keywords": [
+                "api",
+                "dropbox"
+            ],
+            "time": "2013-04-15 07:34:33"
+        },
         {
             "name": "composer/installers",
             "version": "v1.0.3",
@@ -79,12 +121,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/simkimsia/EPubHub.git",
-                "reference": "35d4d23fe3942a99265344d092622ce556134f12"
+                "reference": "d232d6c85d3a2e9be8022cd01ee8335ea77dfa07"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/simkimsia/EPubHub/zipball/35d4d23fe3942a99265344d092622ce556134f12",
-                "reference": "35d4d23fe3942a99265344d092622ce556134f12",
+                "url": "https://api.github.com/repos/simkimsia/EPubHub/zipball/d232d6c85d3a2e9be8022cd01ee8335ea77dfa07",
+                "reference": "d232d6c85d3a2e9be8022cd01ee8335ea77dfa07",
                 "shasum": ""
             },
             "require": {
@@ -95,7 +137,7 @@
             "license": [
                 "MIT"
             ],
-            "time": "2013-03-20 14:37:56"
+            "time": "2013-03-21 03:19:50"
         },
         {
             "name": "simkimsia/utility_lib",
@@ -120,16 +162,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.12.2",
+            "version": "v1.12.3",
             "source": {
                 "type": "git",
-                "url": "git://github.com/fabpot/Twig.git",
-                "reference": "v1.12.2"
+                "url": "https://github.com/fabpot/Twig.git",
+                "reference": "v1.12.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/v1.12.2",
-                "reference": "v1.12.2",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/v1.12.3",
+                "reference": "v1.12.3",
                 "shasum": ""
             },
             "require": {
@@ -165,7 +207,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2013-02-09 18:21:53"
+            "time": "2013-04-08 12:40:11"
         }
     ],
     "packages-dev": [
@@ -177,7 +219,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "epubhub/epubhub": 20,
-        "simkimsia/utility_lib": 20
+        "simkimsia/utility_lib": 20,
+        "benthedesigner/dropbox": 20
     },
     "platform": [
 

@@ -5,6 +5,7 @@ define('APP', getcwd());
 
 define('BUILD', dirname(dirname(APP)) . DS . 'build');
 define('SRC', dirname(dirname(APP)) . DS . 'src');
+define('WORKS', dirname(dirname(APP)) . DS . 'works');
 define('UTILITY_LIB', SRC . DS . 'Plugin' . DS . 'UtilityLib' . DS . 'Lib');
 define('OUTPUT', BUILD . DS . 'output');
 define('SRC_EPUB_FILES', OUTPUT . DS . 'src_epub_files');

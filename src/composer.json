@@ -2,6 +2,8 @@
     "require": {
         "epubhub/epubhub": "dev-master",
         "twig/twig": "1.*",
-        "simkimsia/utility_lib": "dev-master"
+        "simkimsia/utility_lib": "dev-master",
+        "benthedesigner/dropbox": "dev-master",
+        "aws/aws-sdk-php": "2.*"
     }
 }
