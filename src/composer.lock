@@ -1,6 +1,76 @@
 {
-    "hash": "1c6ea1717264952aa11ece990332a88f",
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+    ],
+    "hash": "339550350c160ae27a9964e457a74446",
     "packages": [
+        {
+            "name": "aws/aws-sdk-php",
+            "version": "2.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aws/aws-sdk-php.git",
+                "reference": "2.4.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/2.4.1",
+                "reference": "2.4.1",
+                "shasum": ""
+            },
+            "require": {
+                "guzzle/guzzle": "~3.7.0",
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "doctrine/cache": "~1.0",
+                "ext-openssl": "*",
+                "monolog/monolog": "1.4.*",
+                "phpunit/phpunit": "3.7.*",
+                "symfony/class-loader": "2.*",
+                "symfony/yaml": "2.*"
+            },
+            "suggest": {
+                "doctrine/cache": "Adds support for caching of credentials and responses",
+                "ext-apc": "Allows service description opcode caching, request and response caching, and credentials caching",
+                "ext-openssl": "Allows working with CloudFront private distributions and verifying received SNS messages",
+                "monolog/monolog": "Adds support for logging HTTP requests and responses",
+                "symfony/yaml": "Eases the ability to write manifests for creating jobs in AWS Import/Export"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Aws": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Amazon Web Services",
+                    "homepage": "http://aws.amazon.com"
+                }
+            ],
+            "description": "AWS SDK for PHP",
+            "homepage": "http://aws.amazon.com/sdkforphp2",
+            "keywords": [
+                "amazon",
+                "aws",
+                "dynamodb",
+                "ec2",
+                "s3",
+                "sdk"
+            ],
+            "time": "2013-07-09 05:40:13"
+        },
         {
             "name": "benthedesigner/dropbox",
             "version": "dev-master",
@@ -45,16 +115,16 @@
         },
         {
             "name": "composer/installers",
-            "version": "v1.0.3",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "v1.0.3"
+                "reference": "v1.0.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/v1.0.3",
-                "reference": "v1.0.3",
+                "url": "https://api.github.com/repos/composer/installers/zipball/v1.0.4",
+                "reference": "v1.0.4",
                 "shasum": ""
             },
             "replace": {
@@ -105,15 +175,15 @@
                 "li3",
                 "lithium",
                 "mako",
+                "modulework",
                 "phpbb",
                 "ppi",
                 "silverstripe",
                 "symfony",
                 "wordpress",
-                "yii",
                 "zend"
             ],
-            "time": "2013-03-02 22:45:58"
+            "time": "2013-06-20 02:36:19"
         },
         {
             "name": "epubhub/epubhub",
@@ -130,7 +200,7 @@
                 "shasum": ""
             },
             "require": {
-                "composer/installers": ">=1.0,<2.0"
+                "composer/installers": "~1.0"
             },
             "type": "library",
             "notification-url": "https://packagist.org/downloads/",
@@ -140,38 +210,184 @@
             "time": "2013-03-21 03:19:50"
         },
         {
+            "name": "guzzle/guzzle",
+            "version": "v3.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/guzzle.git",
+                "reference": "v3.7.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/v3.7.1",
+                "reference": "v3.7.1",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.3.2",
+                "symfony/event-dispatcher": ">=2.1"
+            },
+            "replace": {
+                "guzzle/batch": "self.version",
+                "guzzle/cache": "self.version",
+                "guzzle/common": "self.version",
+                "guzzle/http": "self.version",
+                "guzzle/inflection": "self.version",
+                "guzzle/iterator": "self.version",
+                "guzzle/log": "self.version",
+                "guzzle/parser": "self.version",
+                "guzzle/plugin": "self.version",
+                "guzzle/plugin-async": "self.version",
+                "guzzle/plugin-backoff": "self.version",
+                "guzzle/plugin-cache": "self.version",
+                "guzzle/plugin-cookie": "self.version",
+                "guzzle/plugin-curlauth": "self.version",
+                "guzzle/plugin-error-response": "self.version",
+                "guzzle/plugin-history": "self.version",
+                "guzzle/plugin-log": "self.version",
+                "guzzle/plugin-md5": "self.version",
+                "guzzle/plugin-mock": "self.version",
+                "guzzle/plugin-oauth": "self.version",
+                "guzzle/service": "self.version",
+                "guzzle/stream": "self.version"
+            },
+            "require-dev": {
+                "doctrine/cache": "*",
+                "monolog/monolog": "1.*",
+                "phpunit/phpunit": "3.7.*",
+                "psr/log": "1.0.*",
+                "symfony/class-loader": "*",
+                "zendframework/zend-cache": "2.0.*",
+                "zendframework/zend-log": "2.0.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Guzzle\\Tests": "tests/",
+                    "Guzzle": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "Guzzle Community",
+                    "homepage": "https://github.com/guzzle/guzzle/contributors"
+                }
+            ],
+            "description": "Guzzle is a PHP HTTP client library and framework for building RESTful web service clients",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "client",
+                "curl",
+                "framework",
+                "http",
+                "http client",
+                "rest",
+                "web service"
+            ],
+            "time": "2013-07-05 20:17:54"
+        },
+        {
             "name": "simkimsia/utility_lib",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/simkimsia/UtilityLib.git",
-                "reference": "0681734ce775ec116fa4919965d8217074ba2743"
+                "reference": "988095434cc630438bb748f4feea205fd88a9578"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/simkimsia/UtilityLib/zipball/0681734ce775ec116fa4919965d8217074ba2743",
-                "reference": "0681734ce775ec116fa4919965d8217074ba2743",
+                "url": "https://api.github.com/repos/simkimsia/UtilityLib/zipball/988095434cc630438bb748f4feea205fd88a9578",
+                "reference": "988095434cc630438bb748f4feea205fd88a9578",
                 "shasum": ""
             },
             "require": {
-                "composer/installers": ">=1.0,<2.0"
+                "composer/installers": "~1.0"
             },
             "type": "cakephp-plugin",
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2013-03-14 05:28:10"
+            "time": "2013-07-19 08:29:16"
         },
         {
-            "name": "twig/twig",
-            "version": "v1.12.3",
+            "name": "symfony/event-dispatcher",
+            "version": "v2.3.2",
+            "target-dir": "Symfony/Component/EventDispatcher",
             "source": {
                 "type": "git",
-                "url": "https://github.com/fabpot/Twig.git",
-                "reference": "v1.12.3"
+                "url": "https://github.com/symfony/EventDispatcher.git",
+                "reference": "v2.3.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/v1.12.3",
-                "reference": "v1.12.3",
+                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/v2.3.2",
+                "reference": "v2.3.2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "symfony/dependency-injection": "~2.0"
+            },
+            "suggest": {
+                "symfony/dependency-injection": "",
+                "symfony/http-kernel": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\EventDispatcher\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony EventDispatcher Component",
+            "homepage": "http://symfony.com",
+            "time": "2013-05-13 14:36:40"
+        },
+        {
+            "name": "twig/twig",
+            "version": "v1.13.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fabpot/Twig.git",
+                "reference": "v1.13.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/v1.13.1",
+                "reference": "v1.13.1",
                 "shasum": ""
             },
             "require": {
@@ -180,7 +396,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.12-dev"
+                    "dev-master": "1.13-dev"
                 }
             },
             "autoload": {
@@ -207,7 +423,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2013-04-08 12:40:11"
+            "time": "2013-06-06 06:06:01"
         }
     ],
     "packages-dev": [

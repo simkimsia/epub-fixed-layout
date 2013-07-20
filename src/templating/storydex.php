@@ -101,25 +101,57 @@ if (isset($_GET['in1'])) {
     $result = doIn1Move($ePubHub, $fixedLayoutEPub);
 }
 
+$cloudStorage = '';
+if (isset($_GET['cloud'])) {
+    $cloudStorage = $_GET['cloud'];
+}
+
 if ($result !== false) {
-    require_once('../vendor/benthedesigner/dropbox/lib/bootstrap.php');
-    //require_once('../vendor/autoload.php');
-    // Create a temporary file and write some data to it
-    // $tmp = tempnam('/tmp', 'dropbox');
-    // $data = 'This file was uploaded using the Dropbox API!';
-    // file_put_contents($tmp, $data);
+    if ($cloudStorage == 'dropbox') {
+        require_once('../vendor/benthedesigner/dropbox/lib/bootstrap.php');
+        //require_once('../vendor/autoload.php');
+        // Create a temporary file and write some data to it
+        // $tmp = tempnam('/tmp', 'dropbox');
+        // $data = 'This file was uploaded using the Dropbox API!';
+        // file_put_contents($tmp, $data);
 
-    try {
-        // temporarily change to P001.jpg because it is smaller.
-        $result = dirname($result) . DS . 'P001.jpg';
-        // Upload the file with an alternative filename
-        $put = $dropbox->putFile($result, basename($result));
-        var_dump($put);
-    } catch (\Dropbox\Exception\BadRequestException $e) {
-        // The file extension is ignored by Dropbox (e.g. thumbs.db or .ds_store)
-        echo 'Invalid file extension';
+        try {
+            // temporarily change to P001.png because it is smaller.
+            $result = dirname($result) . DS . 'P001.png';
+            // Upload the file with an alternative filename
+            $put = $dropbox->putFile($result, basename($result));
+            var_dump($put);
+        } catch (\Dropbox\Exception\BadRequestException $e) {
+            // The file extension is ignored by Dropbox (e.g. thumbs.db or .ds_store)
+            echo 'Invalid file extension';
+        }
+
+        // Unlink the temporary file
+        // unlink($tmp);
+    } else if ($cloudStorage == 's3') {
+        // this file is kept out of public repo because it contains sensitive
+        // aws credentials. 
+        // See http://docs.aws.amazon.com/aws-sdk-php-2/guide/latest/quick-start.html#creating-a-client
+        // for example of its format.
+        require '../vendor/s3bootstrap.php';
+
+        // temporarily change to P001.png because it is smaller.
+        $pathToFile = dirname($result) . DS . 'P001.png';
+        $key = 'filename/1/' . basename($pathToFile);
+        echo $result;
+
+        // Upload an object by streaming the contents of a file
+        // $pathToFile should be absolute path to a file on disk
+        $result = $client->putObject(array(
+            'Bucket'     => $bucket,
+            'Key'        => $key,
+            'SourceFile' => $pathToFile,
+        ));
+
+        // We can poll the object until it is accessible
+        $client->waitUntilObjectExists(array(
+            'Bucket' => $bucket,
+            'Key'    => $key
+        ));
     }
-
-    // Unlink the temporary file
-    // unlink($tmp);
 }
