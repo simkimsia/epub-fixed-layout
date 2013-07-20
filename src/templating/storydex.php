@@ -138,7 +138,6 @@ if ($result !== false) {
         // temporarily change to P001.png because it is smaller.
         $pathToFile = dirname($result) . DS . 'P001.png';
         $key = 'filename/1/' . basename($pathToFile);
-        echo $result;
 
         // Upload an object by streaming the contents of a file
         // $pathToFile should be absolute path to a file on disk
@@ -146,6 +145,7 @@ if ($result !== false) {
             'Bucket'     => $bucket,
             'Key'        => $key,
             'SourceFile' => $pathToFile,
+            'ACL'           => 'public-read',
         ));
 
         // We can poll the object until it is accessible
@@ -153,5 +153,8 @@ if ($result !== false) {
             'Bucket' => $bucket,
             'Key'    => $key
         ));
+
+        // public read is https://bucketname.s3.amazonaws.com/path/to/file.png
+        var_dump($result); // 
     }
 }
